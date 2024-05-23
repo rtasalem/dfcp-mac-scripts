@@ -25,9 +25,14 @@ echo "Checking version of Snyk CLI..."
 snyk --version
 echo "---------------------------------"
 
+echo "Checking version of Git..."
+git version
+echo "---------------------------------"
+
 echo "Checking version of GitHub CLI..."
 gh --version
 echo "---------------------------------"
 
 echo "Checking version of yq..."
 yq --version
+echo "---------------------------------"

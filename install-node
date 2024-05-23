@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+# Source NVM setup script to ensure NVM environment is available
+source "$HOME/.nvm/nvm.sh"
+
+# Check if NVM is already installed
+if ! command -v nvm &> /dev/null
+then
+    echo "NVM is not installed. Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+    # Source NVM setup script again after installation
+    source "$HOME/.nvm/nvm.sh"
+else
+    echo "NVM is already installed."
+    echo "----IMPORTANT----"
+    echo "Make sure to add the following lines to your shell profile (~./zshrc):"
+    echo 'export NVM_DIR="$HOME/.nvm"'
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm'
+    echo "----IMPORTANT----"
+fi
+
+# NODE.JS & NODE PACKAGE MANAGER (NPM) (Installs the latest LTS version)
+nvm install --lts
+
+# Verify installations of NVM, Node.js, and NPM
+echo "Checking NVM version..."
+nvm -v
+echo "Checking Node.js version..."
+node -v
+echo "Checking NPM version..."
+npm -v
+
+echo "NVM, Node.js, and NPM have now been successfully installed."

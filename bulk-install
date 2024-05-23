@@ -64,6 +64,12 @@ brew install snyk
 echo "Snyk CLI is now installed."
 echo "---------------------------------"
 
+# GIT
+echo "Installing Git using Homebrew..."
+brew install git
+echo "Git is now installed."
+echo "---------------------------------"
+
 # GITHUB CLI
 
 echo "Installing GitHub CLI using Homebrew..."
