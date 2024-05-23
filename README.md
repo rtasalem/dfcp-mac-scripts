@@ -3,4 +3,4 @@ Scripts for automating the process of setting up a MacBook for local development
 | Script | Description | What does is install? | Command |
 | -------------- | ------------------------------------------------------------------------------------ | -------------------- | ------- |
 | `bulk-install` | Bulk installing most of the packages required in the [ffc-development-guide](https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md). | Installs Command Line Tools & Homebrew. Also installs kubectl, kubelogin, Helm, Azure CLI, Snyk CLI, GitHub CLI, and yq (all using Homebrew).  | `./bulk-install` |
-| `check-version` | Checks version of each package installed with the scripts in this repo. | N/A | `./check-version` |
+| `check-version` | Checks version of each package installed with the scripts in this repo. | N/A. Script is to verify that packages have been installed. | `./check-version` |

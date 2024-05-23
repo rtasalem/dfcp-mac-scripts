@@ -10,6 +10,7 @@ then
 else
     echo "Command Line Tools are already installed."
 fi
+echo "---------------------------------"
 
 # HOMEBREW
 
@@ -23,12 +24,14 @@ fi
 
 echo "Updating Homebrew..."
 brew update
+echo "---------------------------------"
 
 # KUBECTL
 
 echo "Installing kubectl using Homebrew..."  
 brew install kubectl
 echo "kubectl is now installed."
+echo "---------------------------------"
 
 # KUBELOGIN
 
@@ -37,18 +40,21 @@ brew install Azure/kubelogin/kubelogin
 echo "kubelogin is now installed. Checking for updates..."
 brew update
 brew upgrade Azure/kubelogin/kubelogin
+echo "---------------------------------"
 
 # HELM
 
 echo "Installing Helm using Homebrew..."
 brew install helm
 echo "Helm is now installed."
+echo "---------------------------------"
 
 # AZURE CLI
 
 echo "Checking for updates & installing Azure CLI using Homebrew..."
 brew update && brew install azure-cli
 echo "Azure CLI is now installed."
+echo "---------------------------------"
 
 # SNYK CLI
 
@@ -56,6 +62,7 @@ echo "Installing Snyk CLI using Homebrew..."
 brew tap snyk/tap
 brew install snyk
 echo "Snyk CLI is now installed."
+echo "---------------------------------"
 
 # GITHUB CLI
 
@@ -63,12 +70,14 @@ echo "Installing GitHub CLI using Homebrew..."
 brew install gh
 brew upgrade gh
 echo "GitHub CLI is now installed."
+echo "---------------------------------"
 
 # YQ
 
 echo "Installing yq using Homebrew..."
 brew install yq
 echo "yq is now installed."
+echo "---------------------------------"
 
 # Check for outdated packages using Homebrew
 
