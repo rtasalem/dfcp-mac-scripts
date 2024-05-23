@@ -69,3 +69,11 @@ echo "GitHub CLI is now installed."
 echo "Installing yq using Homebrew..."
 brew install yq
 echo "yq is now installed."
+
+# Check for outdated packages using Homebrew
+
+echo "Listing outdated Hombrew packages..."
+brew outdated
+echo "Updating outdated Homebrew packages..."
+brew upgrade
+echo "Homebrew packages are now up to date."
