@@ -1,4 +1,4 @@
-# dffc-mac-scripts
+# Defra FFC Mac Scripts
 Scripts for automating the process of setting up a MacBook for local development within Defra's FFC programme. Note that some packages such as kubelogin and yq are not mandatory packages listed in the [ffc-development-guide](https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md), but are still useful to have installed. Below is a summary for what each script can do (it's recommended to run the scripts in the order presented in the table):
 | Script | Description | What does is install? | Command |
 | -------------- | ------------------------------------------------------------------------------------ | -------------------- | ------- |
