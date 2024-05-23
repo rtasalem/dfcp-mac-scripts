@@ -1,28 +1,33 @@
 #!/bin/bash
 set -e
 
-# Check version of all packages
-
 echo "Checking version of Homebrew..."
 brew --version
+echo "---------------------------------"
 
 echo "Checking version of kubectl..."
 kubectl version --client
+echo "---------------------------------"
 
 echo "Checking version of kubelogin..."
 kubelogin --version
+echo "---------------------------------"
 
 echo "Checking version of Helm..."
 helm version
+echo "---------------------------------"
 
 echo "Checking version of Azure CLI..."
 az --version
+echo "---------------------------------"
 
 echo "Checking version of Snyk CLI..."
 snyk --version
+echo "---------------------------------"
 
 echo "Checking version of GitHub CLI..."
 gh --version
+echo "---------------------------------"
 
 echo "Checking version of yq..."
 yq --version
