@@ -1,6 +1,5 @@
 # dffc-mac-scripts
-Scripts for automating the process of setting up a MacBook for local development within Defra's FFC programme. Below is a summary for what each script can do (it's recommended to run the scripts in the order presented in the table):
+Scripts for automating the process of setting up a MacBook for local development within Defra's FFC programme. Note that some packages such as kubelogin and yq are not mandatory installs listed in the development guide, but are still useful for connecting to clusters via Lens and using Azure Service Bus scripts. Below is a summary for what each script can do (it's recommended to run the scripts in the order presented in the table):
 | Script         | Description                                                                          | What does it do?     | Command |
 | -------------- | ------------------------------------------------------------------------------------ | -------------------- | ------- |
-| `install-bulk` | Script for bulk installing most of what's required in the [ffc-development-guide](). | Installs Command Line Tools & Homebrew. Also installs kubectl, kubelogin, Helm, Azure CLI, Snyk CLI, GitHub CLI, and yq (all using Homebrew).  | `./install-bulk` |
-Note that some packages such as kubelogin and yq are not mandatory installs listed in the development guide, but are still useful for connecting to clusters via Lens and using Azure Service Bus scripts.
+| `bulk-install` | Script for bulk installing most of what's required in the [ffc-development-guide](). | Installs Command Line Tools & Homebrew. Also installs kubectl, kubelogin, Helm, Azure CLI, Snyk CLI, GitHub CLI, and yq (all using Homebrew).  | `./bulk-install` |
