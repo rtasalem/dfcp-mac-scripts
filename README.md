@@ -3,5 +3,6 @@ Scripts for automating the process of setting up a MacBook for local development
 | Script | Description | Command |
 | -------------- | ------------------------------------------------------------------------------------ | ------- |
 | `bulk-install` | Bulk installing most of the packages required in the [ffc-development-guide](https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md). Installs Command Line Tools & Homebrew. Also installs kubectl, kubelogin, Helm, Azure CLI, Snyk CLI, GitHub CLI, and yq (all using Homebrew).  | `./bulk-install` |
-| `check-version` | Checks version of each package installed with the scripts in this repo. | `./check-version` |
-| `install-node` | Installs NVM (Node Version Manager), Node.js (latest LTS version), and NPM (Node Package Manager) | `./install-node`|
+| `check-version` | Checks version of each package installed using the `bulk-install` script. | `./check-version` |
+| `install-detect-secrets` | Script that will install Python, pip, pre-commit, and detect-secrets. | `./install-detect-secrets` |
+

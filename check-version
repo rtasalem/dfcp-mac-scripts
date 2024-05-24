@@ -35,4 +35,3 @@ echo "---------------------------------"
 
 echo "Checking version of yq..."
 yq --version
-echo "---------------------------------"
