@@ -6,3 +6,4 @@ Scripts for automating the process of setting up a MacBook for local development
 | `check-version` | Checks version of each package installed using the `bulk-install` script. | `./check-version` |
 | `install-detect-secrets` | Script that will install Python, pip, pre-commit, and detect-secrets. | `./install-detect-secrets` |
 
+Important to note that some parts of the FFC development guide are *not* covered by these scripts: StandardJS, NVM/Node.js/NPM, .NET SDK.
