@@ -50,12 +50,12 @@ fi
 
 # MICROSOFT AZURE STORAGE EXPLORER
 
-read -p "Do you want to install Microsoft Azure Storage Explorer? [y/n]: " install_azure_storage_explorer
+read -p "Do you want to install Azure Storage Explorer? [y/n]: " install_azure_storage_explorer
 
 if [[ $install_azure_storage_explorer == "y" ]]; then
-  echo "Installing Microsoft Azure Storage Explorer via Homebrew..."
+  echo "Installing Azure Storage Explorer via Homebrew..."
   brew install --cask microsoft-azure-storage-explorer
-  echo "Microsoft Azure Storage Explorer is now installed."
+  echo "Azure Storage Explorer is now installed."
   echo "---------------------------------"
 fi
 
