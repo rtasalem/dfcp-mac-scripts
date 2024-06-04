@@ -85,5 +85,5 @@ echo "Listing outdated Hombrew packages..."
 brew outdated
 echo "Updating outdated Homebrew packages..."
 brew upgrade
-echo "Homebrew packages are now up to date."
+echo "Homebrew packages are up to date."
 echo "Bulk install now complete."
