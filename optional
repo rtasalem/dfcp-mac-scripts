@@ -50,14 +50,14 @@ OPTIONAL_CASKS=(
   "microsoft-teams"
   "microsoft-outlook"
   "google-chrome"
+  "obsidian"
+  "drawio"
   "pgadmin4"
   "mongodb-compass"
   "postman"
   "lens"
   "azure-data-studio"
   "microsoft-azure-storage-explorer"
-  "obsidian"
-  "drawio"
 )
 
 for package in "${OPTIONAL_PACKAGES[@]}"; do

@@ -67,7 +67,6 @@ PACKAGES=(
   "python"
   "pre-commit"
   "detect-secrets"
-  "yq"
 )
 
 CASKS=(

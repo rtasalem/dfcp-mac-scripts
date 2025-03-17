@@ -32,7 +32,6 @@ PACKAGES=(
   "pip3"
   "pre-commit"
   "detect-secrets"
-  "yq"
 )
 
 for package in "${PACKAGES[@]}"; do
