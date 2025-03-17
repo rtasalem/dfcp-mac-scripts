@@ -28,6 +28,7 @@ PACKAGES=(
   "az"
   "snyk"
   "gh"
+  "dotnet"
   "python3"
   "pip3"
   "pre-commit"
