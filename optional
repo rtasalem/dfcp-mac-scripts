@@ -1,0 +1,83 @@
+#!/bin/bash
+set -e
+
+echo "BEGIN INSTALL OF OPTIONAL PACKAGES"
+echo "---------------------------------"
+
+install_optional_package() {
+  local package=$1
+
+  echo "Checking if $package is installed..."
+
+  if ! brew list --formula | grep -q "^$package$"; then
+      echo "$package is not installed. Installing..."
+      brew install "$package"
+      echo "$package installation complete."
+  else
+      echo "$package is already installed. Upgrading..."
+      brew upgrade "$package"
+  fi
+
+  echo "---------------------------------"
+}
+
+install_optional_cask() {
+  local cask=$1
+
+  echo "Checking if $cask is installed..."
+
+  if ! brew list --cask | grep -q "^$cask$"; then
+      echo "$cask is not installed. Installing..."
+      brew install --cask "$cask"
+      echo "$cask installation complete."
+  else
+      echo "$cask is already installed. Upgrading..."
+      brew upgrade --cask "$cask"
+  fi
+
+  echo "---------------------------------"
+}
+
+OPTIONAL_PACKAGES=(
+  "yq"
+  "mongosh"
+  "postgresql@14"
+  "k9s"
+)
+
+OPTIONAL_CASKS=(
+  "slack"
+  "microsoft-teams"
+  "microsoft-outlook"
+  "google-chrome"
+  "obsidian"
+  "drawio"
+  "pgadmin4"
+  "mongodb-compass"
+  "postman"
+  "lens"
+  "azure-data-studio"
+  "microsoft-azure-storage-explorer"
+)
+
+for package in "${OPTIONAL_PACKAGES[@]}"; do
+
+  read -p "Do you want to install $package? [y/n]: " response
+
+  if [[ $response == "y" ]]; then
+    install_optional_package "$package"
+  fi
+
+done
+
+for cask in "${OPTIONAL_CASKS[@]}"; do
+
+  read -p "Do you want to install $cask? [y/n]: " response
+  
+  if [[ $response == "y" ]]; then
+    install_optional_cask "$cask"
+  fi
+
+done
+
+echo "END"
