@@ -60,4 +60,6 @@ echo "Checking for outdated packages..."
 brew outdated
 echo "Updating outdated packages..."
 echo "All packages installed via Homebrew are up to date."
-echo "All required packages/software for FFC development have now been installed."
+echo "Required packages/software for FFC development have now been installed."
+echo "DISCLAIMER: packges/software not covered in this scripts includes NVM (Node Version Manager), StandardJS, and .NET SDK."
+echo "Please refer to the FFC Development Guide for instructions: https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md"
