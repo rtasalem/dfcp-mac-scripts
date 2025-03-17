@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "STARTING..."
+echo "BEGIN INSTALL OF OPTIONAL PACKAGES"
 echo "---------------------------------"
 
 install_optional_package() {
@@ -10,9 +10,9 @@ install_optional_package() {
   echo "Checking if $package is installed..."
 
   if ! brew list --formula | grep -q "^$package$"; then
-    echo "$package is not installed. Installing..."
-    brew install "$package"
-    echo "$package installation complete."
+      echo "$package is not installed. Installing..."
+      brew install "$package"
+      echo "$package installation complete."
   else
       echo "$package is already installed. Upgrading..."
       brew upgrade "$package"
@@ -38,105 +38,149 @@ install_optional_cask() {
   echo "---------------------------------"
 }
 
-# ADD YQ !!!
-# VS CODE
+OPTIONAL_PACKAGES=(
+  "yq"
+  "mongosh"
+  "postgresql@14"
+  "k9s"
+)
 
-echo "Installing Visual Studio Code via Homebrew..."
-brew install --cask visual-studio-code
-echo "VS Code is now installed."
-echo "---------------------------------"
+OPTIONAL_CASKS=(
+  "slack"
+  "microsoft-teams"
+  "microsoft-outlook"
+  "google-chrome"
+  "pgadmin4"
+  "mongodb-compass"
+  "postman"
+  "lens"
+  "azure-data-studio"
+  "microsoft-azure-storage-explorer"
+  "obsidian"
+  "drawio"
+)
 
-# DOCKER DESKTOP
+for package in "${OPTIONAL_PACKAGES[@]}"; do
 
-echo "Installing Docker Desktop via Homebrew..."
-brew install --cask docker
-echo "Docker Desktop is now installed."
-echo "---------------------------------"
+  read -p "Do you want to install $package? [y/n]: " response
 
-# POSTMAN
+  if [[ $response == "y" ]]; then
+    install_optional_package "$package"
+  fi
 
-read -p "Do you want to install Postman? [y/n]: " install_postman
+done
 
-if [[ $install_postman == "y" ]]; then
-  echo "Installing Postman via Homebrew..."
-  brew install --cask postman
-  echo "Postman is now installed."
-  echo "---------------------------------"
-fi
+for cask in "${OPTIONAL_CASKS[@]}"; do
 
-# LENS
+  read -p "Do you want to install $cask? [y/n]: " response
+  
+  if [[ $response == "y" ]]; then
+    install_optional_cask "$cask"
+  fi
 
-read -p "Do you want to install Lens? [y/n]: " install_lens
+done
 
-if [[ $install_lens == "y" ]]; then
-  echo "Installing Lens via Homebrew..."
-  brew install --cask lens
-  echo "Lens is now installed."
-  echo "---------------------------------"
-fi
+echo "END"
 
-# AZURE DATA STUDIO
+# # ADD YQ !!!
+# # VS CODE
 
-read -p "Do you want to install Azure Data Studio? [y/n]: " install_azure_data_studio
+# echo "Installing Visual Studio Code via Homebrew..."
+# brew install --cask visual-studio-code
+# echo "VS Code is now installed."
+# echo "---------------------------------"
 
-if [[ $install_azure_data_studio == "y" ]]; then
-  echo "Installing Azure Data Studio via Homebrew..."
-  brew install --cask azure-data-studio
-  echo "Azure Data Studio is now installed."
-  echo "---------------------------------"
-fi
+# # DOCKER DESKTOP
 
-# MICROSOFT AZURE STORAGE EXPLORER
+# echo "Installing Docker Desktop via Homebrew..."
+# brew install --cask docker
+# echo "Docker Desktop is now installed."
+# echo "---------------------------------"
 
-read -p "Do you want to install Azure Storage Explorer? [y/n]: " install_azure_storage_explorer
+# # POSTMAN
 
-if [[ $install_azure_storage_explorer == "y" ]]; then
-  echo "Installing Azure Storage Explorer via Homebrew..."
-  brew install --cask microsoft-azure-storage-explorer
-  echo "Azure Storage Explorer is now installed."
-  echo "---------------------------------"
-fi
+# read -p "Do you want to install Postman? [y/n]: " install_postman
 
-# PGADMIN 4
+# if [[ $install_postman == "y" ]]; then
+#   echo "Installing Postman via Homebrew..."
+#   brew install --cask postman
+#   echo "Postman is now installed."
+#   echo "---------------------------------"
+# fi
 
-read -p "Do you want to install pgAdmin 4? [y/n]: " install_pgadmin
+# # LENS
 
-if [[ $install_pgadmin == "y" ]]; then
-  echo "Installing pgAdmin 4 via Homebrew..."
-  brew install --cask pgadmin4
-  echo "pgAdmin 4 is now installed."
-  echo "---------------------------------"
-fi
+# read -p "Do you want to install Lens? [y/n]: " install_lens
 
-# SLACK
+# if [[ $install_lens == "y" ]]; then
+#   echo "Installing Lens via Homebrew..."
+#   brew install --cask lens
+#   echo "Lens is now installed."
+#   echo "---------------------------------"
+# fi
 
-read -p "Do you want to install Slack? [y/n]: " install_slack
+# # AZURE DATA STUDIO
 
-if [[ $install_slack == "y" ]]; then
-  echo "Installing Slack via Homebrew..."
-  brew install --cask slack
-  echo "Slack is now installed."
-  echo "---------------------------------"
-fi
+# read -p "Do you want to install Azure Data Studio? [y/n]: " install_azure_data_studio
 
-# OBSIDIAN
+# if [[ $install_azure_data_studio == "y" ]]; then
+#   echo "Installing Azure Data Studio via Homebrew..."
+#   brew install --cask azure-data-studio
+#   echo "Azure Data Studio is now installed."
+#   echo "---------------------------------"
+# fi
 
-read -p "Do you want to install Obsidian? [y/n]: " install_obsidian
+# # MICROSOFT AZURE STORAGE EXPLORER
 
-if [[ $install_obsidian == "y" ]]; then
-  echo "Installing Obsidian via Homebrew..."
-  brew install --cask obsidian
-  echo "Obsidian is now installed."
-  echo "---------------------------------"
-fi
+# read -p "Do you want to install Azure Storage Explorer? [y/n]: " install_azure_storage_explorer
 
-# DRAW.IO
+# if [[ $install_azure_storage_explorer == "y" ]]; then
+#   echo "Installing Azure Storage Explorer via Homebrew..."
+#   brew install --cask microsoft-azure-storage-explorer
+#   echo "Azure Storage Explorer is now installed."
+#   echo "---------------------------------"
+# fi
 
-read -p "Do you want to install draw.io? [y/n]: " install_drawio
+# # PGADMIN 4
 
-if [[ $install_drawio == "y" ]]; then
-  echo "Installing draw.io via Homebrew..."
-  brew install --cask drawio
-  echo "draw.io is now installed."
-  echo "---------------------------------"
-fi
+# read -p "Do you want to install pgAdmin 4? [y/n]: " install_pgadmin
+
+# if [[ $install_pgadmin == "y" ]]; then
+#   echo "Installing pgAdmin 4 via Homebrew..."
+#   brew install --cask pgadmin4
+#   echo "pgAdmin 4 is now installed."
+#   echo "---------------------------------"
+# fi
+
+# # SLACK
+
+# read -p "Do you want to install Slack? [y/n]: " install_slack
+
+# if [[ $install_slack == "y" ]]; then
+#   echo "Installing Slack via Homebrew..."
+#   brew install --cask slack
+#   echo "Slack is now installed."
+#   echo "---------------------------------"
+# fi
+
+# # OBSIDIAN
+
+# read -p "Do you want to install Obsidian? [y/n]: " install_obsidian
+
+# if [[ $install_obsidian == "y" ]]; then
+#   echo "Installing Obsidian via Homebrew..."
+#   brew install --cask obsidian
+#   echo "Obsidian is now installed."
+#   echo "---------------------------------"
+# fi
+
+# # DRAW.IO
+
+# read -p "Do you want to install draw.io? [y/n]: " install_drawio
+
+# if [[ $install_drawio == "y" ]]; then
+#   echo "Installing draw.io via Homebrew..."
+#   brew install --cask drawio
+#   echo "draw.io is now installed."
+#   echo "---------------------------------"
+# fi

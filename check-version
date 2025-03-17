@@ -39,4 +39,4 @@ for package in "${PACKAGES[@]}"; do
   check_package_version "$package"
 done
 
-echo "COMPLETE"
+echo "END"
