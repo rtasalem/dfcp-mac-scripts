@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "STARTING..."
+echo "BEGIN INSTALL OF MANDATORY PACKAGES"
 echo "---------------------------------"
 
 install_package() {
@@ -22,17 +22,20 @@ install_package() {
 }
 
 install_cask() {
-local cask=$1
-echo "Checking if $cask is installed..."
-if ! brew list --cask | grep -q "^$cask$"; then
-    echo "$cask is not installed. Installing..."
-    brew install --cask "$cask"
-    echo "$cask installation complete."
-else
-    echo "$cask is already installed. Upgrading..."
-    brew upgrade --cask "$cask"
-fi
-echo "---------------------------------"
+  local cask=$1
+
+  echo "Checking if $cask is installed..."
+
+  if ! brew list --cask | grep -q "^$cask$"; then
+      echo "$cask is not installed. Installing..."
+      brew install --cask "$cask"
+      echo "$cask installation complete."
+  else
+      echo "$cask is already installed. Upgrading..."
+      brew upgrade --cask "$cask"
+  fi
+
+  echo "---------------------------------"
 }
 
 if ! xcode-select -p &> /dev/null; then
@@ -64,6 +67,7 @@ PACKAGES=(
   "python"
   "pre-commit"
   "detect-secrets"
+  "yq"
 )
 
 CASKS=(
