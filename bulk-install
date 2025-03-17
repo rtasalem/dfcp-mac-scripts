@@ -4,7 +4,7 @@ set -e
 echo "STARTING..."
 echo "---------------------------------"
 
-install_brew_package() {
+install_package() {
   local package=$1
 
   echo "Checking if $package is installed..."
@@ -19,6 +19,20 @@ install_brew_package() {
   fi
 
   echo "---------------------------------"
+}
+
+install_cask() {
+local cask=$1
+echo "Checking if $cask is installed..."
+if ! brew list --cask | grep -q "^$cask$"; then
+    echo "$cask is not installed. Installing..."
+    brew install --cask "$cask"
+    echo "$cask installation complete."
+else
+    echo "$cask is already installed. Upgrading..."
+    brew upgrade --cask "$cask"
+fi
+echo "---------------------------------"
 }
 
 if ! xcode-select -p &> /dev/null; then
@@ -50,18 +64,26 @@ PACKAGES=(
   "yq"
 )
 
-for package in "${PACKAGES[@]}"; do
-    install_brew_package "$package"
-    
-    # Special handling for Snyk CLI
-    if [ "$package" == "snyk" ]; then
-        brew tap snyk/tap
-    fi
+CASKS=(
+  visual-studio-code
+  docker
+)
 
+for package in "${PACKAGES[@]}"; do
+  install_package "$package"
+  
+  # Special handling for Snyk CLI
+  if [ "$package" == "snyk" ]; then
+      brew tap snyk/tap
+  fi
+done
+
+for cask in "${CASKS[@]}"; do
+    install_cask "$cask"
 done
 
 echo "Checking for outdated packages..."
-brew outdated
+brew outdated || true
 echo "Updating outdated packages..."
 echo "All packages installed via Homebrew are up to date."
 echo "Required packages/software for FFC development have now been installed."
