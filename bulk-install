@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "STARTING..."
+echo "---------------------------------"
+
 install_brew_package() {
   local package=$1
 
@@ -9,6 +12,7 @@ install_brew_package() {
   if ! brew list --formula | grep -q "^$package$"; then
     echo "$package is not installed. Installing..."
     brew install "$package"
+    echo "$package installation complete."
   else
       echo "$package is already installed. Upgrading..."
       brew upgrade "$package"
