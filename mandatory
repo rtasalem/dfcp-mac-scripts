@@ -62,6 +62,9 @@ PACKAGES=(
   "snyk"
   "gh"
   "yq"
+  "python"
+  "pre-commit"
+  "detect-secrets"
 )
 
 CASKS=(
