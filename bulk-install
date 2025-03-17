@@ -1,89 +1,63 @@
 #!/bin/bash
 set -e
 
-# COMMAND LINE TOOLS
+install_brew_package() {
+  local package=$1
 
-if ! xcode-select -p &> /dev/null
-then
-    echo "Command Line Tools are not installed. Installing Command Line Tools..."
+  echo "Checking if $package is installed..."
+
+  if ! brew list --formula | grep -q "^$package$"; then
+    echo "$package is not installed. Installing..."
+    brew install "$package"
+  else
+      echo "$package is already installed. Upgrading..."
+      brew upgrade "$package"
+  fi
+
+  echo "---------------------------------"
+}
+
+if ! xcode-select -p &> /dev/null; then
+    echo "Command Line Tools are not installed. Installing..."
     xcode-select --install
 else
     echo "Command Line Tools are already installed."
 fi
 echo "---------------------------------"
 
-# HOMEBREW
-
-if ! command -v brew &> /dev/null
-then
-    echo "Homebrew is not installed. Installing Homebrew..."
+if ! command -v brew &> /dev/null; then
+    echo "Homebrew is not installed. Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Homebrew is now installed and ready to use. Checking for updates..."
+    brew update
 else
-    echo "Homebrew is already installed."
+    echo "Homebrew is already installed. Updating..."
+    brew update
 fi
-
-echo "Updating Homebrew..."
-brew update
 echo "---------------------------------"
 
-# KUBECTL
+PACKAGES=(
+  "kubectl"
+  "Azure/kubelogin/kubelogin"
+  "helm"
+  "azure-cli"
+  "snyk"
+  "gh"
+  "yq"
+)
 
-echo "Installing kubectl using Homebrew..."  
-brew install kubectl
-echo "kubectl is now installed."
-echo "---------------------------------"
+for package in "${PACKAGES[@]}"; do
+    install_brew_package "$package"
+    
+    # Special handling for Snyk CLI
+    if [ "$package" == "snyk" ]; then
+        brew tap snyk/tap
+    fi
 
-# KUBELOGIN
+done
 
-echo "Installing kubelogin using Homebrew..."
-brew install Azure/kubelogin/kubelogin
-echo "kubelogin is now installed. Checking for updates..."
-brew update
-brew upgrade Azure/kubelogin/kubelogin
-echo "---------------------------------"
-
-# HELM
-
-echo "Installing Helm using Homebrew..."
-brew install helm
-echo "Helm is now installed."
-echo "---------------------------------"
-
-# AZURE CLI
-
-echo "Checking for updates & installing Azure CLI using Homebrew..."
-brew update && brew install azure-cli
-echo "Azure CLI is now installed."
-echo "---------------------------------"
-
-# SNYK CLI
-
-echo "Installing Snyk CLI using Homebrew..."
-brew tap snyk/tap
-brew install snyk
-echo "Snyk CLI is now installed."
-echo "---------------------------------"
-
-# GITHUB CLI
-
-echo "Installing GitHub CLI using Homebrew..."
-brew install gh
-brew upgrade gh
-echo "GitHub CLI is now installed."
-echo "---------------------------------"
-
-# YQ
-
-echo "Installing yq using Homebrew..."
-brew install yq
-echo "yq is now installed."
-echo "---------------------------------"
-
-# Check for outdated packages using Homebrew
-
-echo "Listing outdated Hombrew packages..."
+echo "Checking for outdated packages..."
 brew outdated
-echo "Updating outdated Homebrew packages..."
-brew upgrade
-echo "Homebrew packages are up to date."
-echo "Bulk install now complete."
+echo "Updating outdated packages..."
+echo "All packages installed via Homebrew are up to date."
+echo "All required packages/software for FFC development have now been installed."
