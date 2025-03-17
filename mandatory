@@ -61,7 +61,6 @@ PACKAGES=(
   "azure-cli"
   "snyk"
   "gh"
-  "yq"
   "python"
   "pre-commit"
   "detect-secrets"

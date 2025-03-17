@@ -1,33 +1,41 @@
 #!/bin/bash
 set -e
 
-echo "Checking version of Homebrew..."
-brew --version
+echo "CHECKING VERSION..."
 echo "---------------------------------"
 
-echo "Checking version of kubectl..."
-kubectl version --client
-echo "---------------------------------"
+check_package_version() {
+  local package=$1
 
-echo "Checking version of kubelogin..."
-kubelogin --version
-echo "---------------------------------"
+  echo "Checking version of $package..."
+  if command -v "$package" &> /dev/null; then
+    case "$package" in
+      kubectl) kubectl version --client ;;
+      helm) helm version ;;
+      *) "$package" --version ;;
+    esac
+    echo "---------------------------------"
+  else
+    echo "$package is not installed."
+  fi
+}
 
-echo "Checking version of Helm..."
-helm version
-echo "---------------------------------"
+PACKAGES=(
+  "brew"
+  "kubectl"
+  "kubelogin"
+  "helm"
+  "az"
+  "snyk"
+  "gh"
+  "python3"
+  "pip3"
+  "pre-commit"
+  "detect-secrets"
+)
 
-echo "Checking version of Azure CLI..."
-az --version
-echo "---------------------------------"
+for package in "${PACKAGES[@]}"; do
+  check_package_version "$package"
+done
 
-echo "Checking version of Snyk CLI..."
-snyk --version
-echo "---------------------------------"
-
-echo "Checking version of GitHub CLI..."
-gh --version
-echo "---------------------------------"
-
-echo "Checking version of yq..."
-yq --version
+echo "COMPLETE"
