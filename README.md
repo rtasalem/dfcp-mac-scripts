@@ -1,6 +1,6 @@
 # Defra FFC Mac Scripts
 
-Scripts for automating the process of setting up a MacBook for local development within Defra's FFC (Future Farming & Countryside) programme, also known as FCP (Farming & Countryside Programme). All installations are completed via [Homebrew](https://brew.sh/)<br>
+Scripts for automating the process of setting up a MacBook for local development within Defra's FFC (Future Farming & Countryside) programme, also known as FCP (Farming & Countryside Programme). All installations are completed using [Homebrew](https://brew.sh/).<br>
 
 Below is a summary of each script's purpose (it's recommended to run the scripts in the order presented in the table):
 | Script | Description | Command |
