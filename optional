@@ -39,10 +39,11 @@ install_optional_cask() {
 }
 
 OPTIONAL_PACKAGES=(
-  "yq"
+  "awscli"
   "mongosh"
   "postgresql@14"
   "k9s"
+  "yq"
 )
 
 OPTIONAL_CASKS=(
@@ -58,6 +59,8 @@ OPTIONAL_CASKS=(
   "lens"
   "azure-data-studio"
   "microsoft-azure-storage-explorer"
+  "warp"
+  "ghostty"
 )
 
 for package in "${OPTIONAL_PACKAGES[@]}"; do
