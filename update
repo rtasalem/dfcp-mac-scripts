@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "BEGIN CHECK FOR UPDATES..."
+echo "BEGIN CHECK FOR UPDATES"
 
 echo "Updating Homebrew: brew update"
 brew update
