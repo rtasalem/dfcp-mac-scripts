@@ -39,10 +39,11 @@ install_optional_cask() {
 }
 
 OPTIONAL_PACKAGES=(
-  "yq"
+  "awscli"
   "mongosh"
   "postgresql@14"
   "k9s"
+  "yq"
 )
 
 OPTIONAL_CASKS=(
