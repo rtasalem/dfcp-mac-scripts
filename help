@@ -12,3 +12,4 @@ echo "  ./optional   - Yes/no prompts to install optional packages useful for da
 echo "  ./update     - Update Homebrew and installed packages"
 echo ""
 echo "For more details, please refer to the README: https://github.com/rtasalem/dffc-mac-scripts."
+echo "If experiecing any bugs or have a feature request, please raise an issue: https://github.com/rtasalem/dffc-mac-scripts/issues."
