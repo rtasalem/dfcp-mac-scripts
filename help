@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-#!/bin/bash
-
 echo "Defra FFC Mac Scripts - Help"
 echo "----------------------------"
 echo ""
@@ -13,4 +11,4 @@ echo "  ./version    - Check installed versions of mandatory packages"
 echo "  ./optional   - Yes/no prompts to install optional packages useful for day-to-day development"
 echo "  ./update     - Update Homebrew and installed packages"
 echo ""
-echo "For more details, check the README."
+echo "For more details, please refer to the README: https://github.com/rtasalem/dffc-mac-scripts."
