@@ -11,4 +11,4 @@ Below is a summary of each script's purpose. It's recommended to run the scripts
 | [optional](./optional) | Yes/no prompts to install optional packages and desktop applications that are not listed in the FFC development guide but are useful for day-to-day development: Slack, Microsoft Teams, Microsoft Outlook, Google Chrome, Obsidian, draw.io, pgAdmin 4, postgresql@14, MongoDB Compass, mongosh, Postman, Lens, K9s, Azure Data Studio, Azure Storage Explorer, and yq. | `./optional` |
 | [update](./update) | Checks and downloads any updates for Homebrew and packages installed via Homebrew. | `./update` |
 
-Important to note that some parts of the FFC development guide are _not_ covered by these scripts: StandardJS and NVM (Node Version Manager). Please refer to the [FFC Development Guide](https://github.com/DEFRA/ffc-development-guide) for full instructions.
+Important to note that some parts of the FFC development guide are _not_ covered by these scripts: Neostandard and NVM (Node Version Manager). Please refer to the [FFC Development Guide](https://github.com/DEFRA/ffc-development-guide) for full instructions.
