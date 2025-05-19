@@ -4,40 +4,6 @@ set -e
 echo "BEGIN INSTALL OF MANDATORY PACKAGES"
 echo "---------------------------------"
 
-install_package() {
-  local package=$1
-
-  echo "Checking if $package is installed..."
-
-  if ! brew list --formula | grep -q "^$package$"; then
-    echo "$package is not installed. Installing..."
-    brew install "$package"
-    echo "$package installation complete."
-  else
-      echo "$package is already installed. Upgrading..."
-      brew upgrade "$package"
-  fi
-
-  echo "---------------------------------"
-}
-
-install_cask() {
-  local cask=$1
-
-  echo "Checking if $cask is installed..."
-
-  if ! brew list --cask | grep -q "^$cask$"; then
-      echo "$cask is not installed. Installing..."
-      brew install --cask "$cask"
-      echo "$cask installation complete."
-  else
-      echo "$cask is already installed. Upgrading..."
-      brew upgrade --cask "$cask"
-  fi
-
-  echo "---------------------------------"
-}
-
 if ! xcode-select -p &> /dev/null; then
     echo "Command Line Tools are not installed. Installing..."
     xcode-select --install
@@ -57,7 +23,7 @@ else
 fi
 echo "---------------------------------"
 
-PACKAGES=(
+FORMULAE=(
   "kubectl"
   "Azure/kubelogin/kubelogin"
   "helm"
@@ -75,8 +41,8 @@ CASKS=(
   "docker"
 )
 
-for package in "${PACKAGES[@]}"; do
-  install_package "$package"
+for formula in "${FORMULAE[@]}"; do
+  brew install "$formula"
   
   # Special handling for Snyk CLI
   if [ "$package" == "snyk" ]; then
@@ -85,7 +51,7 @@ for package in "${PACKAGES[@]}"; do
 done
 
 for cask in "${CASKS[@]}"; do
-    install_cask "$cask"
+    brew install --cask "$cask"
 done
 
 echo "Checking for outdated packages..."
