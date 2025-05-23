@@ -13,4 +13,4 @@ Below is a summary of each script's purpose. It's recommended to run the scripts
 
 All scripts can be executed from the VS Code Command Palette. To run a script, open the Command Palette (`ctrl+shift+p` or `cmd+shift+p`), select Tasks: Run Task, and choose the desired task from the list.
 
-Important to note that some parts of the FFC development guide are _not_ covered by these scripts: StandardJS and NVM (Node Version Manager). Please refer to the [FFC Development Guide](https://github.com/DEFRA/ffc-development-guide) for full instructions.
+Important to note that some parts of the FFC development guide are _not_ covered by these scripts: Neostandard and NVM (Node Version Manager). Please refer to the [FFC Development Guide](https://github.com/DEFRA/ffc-development-guide) for full instructions.
