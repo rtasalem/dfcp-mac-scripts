@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "DFFC-MAC-SCRIPTS: Help",
+      "command": "./help"
+    },
+    {
+      "type": "shell",
+      "label": "DFFC-MAC-SCRIPTS: Install",
+      "command": "./install"
+    },
+    {
+      "type": "shell",
+      "label": "DFFC-MAC-SCRIPTS: Version",
+      "command": "./version"
+    },
+    {
+      "type": "shell",
+      "label": "DFFC-MAC-SCRIPTS: Update",
+      "command": "./update"
+    },
+    {
+      "type": "shell",
+      "label": "DFFC-MAC-SCRIPTS: Optional",
+      "command": "./optional"
+    }
+  ]
+}
