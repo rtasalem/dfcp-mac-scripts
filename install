@@ -83,6 +83,14 @@ for package in "${PACKAGES[@]}"; do
   if [ "$package" == "snyk" ]; then
       brew tap snyk/tap
   fi
+
+  if [ "$package" = "openjdk" ]; then
+    echo "To complete OpenJDK installation, please do the following:"
+    echo "If using Zsh: echo 'export PATH=\"/opt/homebrew/opt/openjdk/bin:\$PATH\"' >> ~/.zshrc"
+    echo "If using Bash: echo 'export PATH=\"/opt/homebrew/opt/openjdk/bin:\$PATH\"' >> ~/.bashrc"
+    echo "Then run: source ~/.zshrc  # or source ~/.bashrc, depending on your shell"
+    echo "---------------------------------"
+  fi
 done
 
 for cask in "${CASKS[@]}"; do
