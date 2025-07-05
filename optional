@@ -40,27 +40,27 @@ install_optional_cask() {
 
 OPTIONAL_PACKAGES=(
   "awscli"
+  "k9s"
   "mongosh"
   "postgresql@14"
-  "k9s"
   "yq"
 )
 
 OPTIONAL_CASKS=(
-  "slack"
-  "microsoft-teams"
-  "microsoft-outlook"
-  "google-chrome"
-  "obsidian"
-  "drawio"
-  "pgadmin4"
-  "mongodb-compass"
-  "postman"
-  "lens"
   "azure-data-studio"
-  "microsoft-azure-storage-explorer"
-  "warp"
+  "drawio"
   "ghostty"
+  "google-chrome"
+  "lens"
+  "microsoft-azure-storage-explorer"
+  "microsoft-outlook"
+  "microsoft-teams"
+  "mongodb-compass"
+  "obsidian"
+  "pgadmin4"
+  "postman"
+  "slack"
+  "warp"
 )
 
 for package in "${OPTIONAL_PACKAGES[@]}"; do

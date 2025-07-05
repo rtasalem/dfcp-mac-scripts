@@ -11,11 +11,11 @@ install_package() {
 
   if ! brew list --formula | grep -q "^$package$"; then
     echo "$package is not installed. Installing..."
-    brew install "$package"
+    brew install "$package" >/dev/null 2>&1
     echo "$package installation complete."
   else
       echo "$package is already installed. Upgrading..."
-      brew upgrade "$package"
+      brew upgrade "$package" >/dev/null 2>&1
   fi
 
   echo "---------------------------------"
@@ -28,11 +28,11 @@ install_cask() {
 
   if ! brew list --cask | grep -q "^$cask$"; then
       echo "$cask is not installed. Installing..."
-      brew install --cask "$cask"
+      brew install --cask "$cask" >/dev/null 2>&1
       echo "$cask installation complete."
   else
       echo "$cask is already installed. Upgrading..."
-      brew upgrade --cask "$cask"
+      brew upgrade --cask "$cask" >/dev/null 2>&1
   fi
 
   echo "---------------------------------"
@@ -58,21 +58,22 @@ fi
 echo "---------------------------------"
 
 PACKAGES=(
-  "kubectl"
-  "Azure/kubelogin/kubelogin"
-  "helm"
   "azure-cli"
-  "snyk"
-  "gh"
-  "python"
-  "pre-commit"
+  "Azure/kubelogin/kubelogin"
   "detect-secrets"
+  "gh"
+  "helm"
+  "kubectl"
+  "openjdk"
+  "pre-commit"
+  "python"
+  "snyk"
 )
 
 CASKS=(
+  "docker"
   "dotnet-sdk"
   "visual-studio-code"
-  "docker"
 )
 
 for package in "${PACKAGES[@]}"; do
@@ -81,6 +82,14 @@ for package in "${PACKAGES[@]}"; do
   # Special handling for Snyk CLI
   if [ "$package" == "snyk" ]; then
       brew tap snyk/tap
+  fi
+
+  if [ "$package" = "openjdk" ]; then
+    echo "To complete OpenJDK installation, please do the following:"
+    echo "If using Zsh: echo 'export PATH=\"/opt/homebrew/opt/openjdk/bin:\$PATH\"' >> ~/.zshrc"
+    echo "If using Bash: echo 'export PATH=\"/opt/homebrew/opt/openjdk/bin:\$PATH\"' >> ~/.bashrc"
+    echo "Then run: source ~/.zshrc  # or source ~/.bashrc, depending on your shell"
+    echo "---------------------------------"
   fi
 done
 
@@ -94,7 +103,7 @@ echo "Updating outdated packages..."
 echo "All packages installed via Homebrew are up to date."
 
 echo "Required packages/software for FFC development have now been installed."
-echo "DISCLAIMER: packges/software not covered in this scripts includes NVM (Node Version Manager), StandardJS, and .NET SDK."
+echo "DISCLAIMER: packges/software not covered in this scripts includes NVM (Node Version Manager) and neostandard"
 echo "Please refer to the FFC Development Guide for instructions: https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md"
 
 echo "END"

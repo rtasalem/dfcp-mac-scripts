@@ -11,5 +11,6 @@ brew outdated
 
 echo "Upgrading outdated packages: brew upgrade"
 brew upgrade
+echo "Check complete. All packages are up to date."
 
 echo "END"
