@@ -1,8 +1,6 @@
 #!/bin/bash
-set -e
 
-echo "BEGIN CHECKING VERSION OF ALL MANDATORY PACKAGES"
-echo "---------------------------------"
+set -e
 
 check_package_version() {
   local package=$1
@@ -21,22 +19,21 @@ check_package_version() {
 }
 
 PACKAGES=(
+  "aws"
+  "az"
   "brew"
+  "detect-secrets"
+  "dotnet"
+  "gh"
+  "helm"
   "kubectl"
   "kubelogin"
-  "helm"
-  "az"
-  "snyk"
-  "gh"
-  "dotnet"
-  "python3"
   "pip3"
   "pre-commit"
-  "detect-secrets"
+  "python3"
+  "snyk"
 )
 
 for package in "${PACKAGES[@]}"; do
   check_package_version "$package"
 done
-
-echo "END"
