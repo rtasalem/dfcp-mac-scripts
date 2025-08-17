@@ -1,15 +1,18 @@
 #!/bin/bash
+
 set -e
 
-echo "Defra FFC Mac Scripts - Help"
-echo "----------------------------"
+echo "Available commands for dfcp-mac-scripts"
 echo ""
-echo "Available commands:"
-echo "  ./help       - List all available commands for dffc-mac-scripts"
-echo "  ./install    - Install required packages for FFC development"
-echo "  ./version    - Check installed versions of packages included in the 'install' script"
-echo "  ./optional   - Yes/no prompts to install optional packages useful for day-to-day development"
-echo "  ./update     - Update Homebrew and installed packages"
+echo "---------------------------------------------------------------------------------------------------------------------------------"
+echo "Command   |   Description"
+echo "---------------------------------------------------------------------------------------------------------------------------------"
+echo "./help       - List all available commands for dfcp-mac-scripts"
+echo "./install    - Install required packages for FCP development"
+echo "./version    - Check versions of packages (only applied to packaged listed in the install script)"
+echo "./optional   - Yes/no prompts to install optional packages useful for day-to-day development"
+echo "./update     - Update Homebrew and packages"
+echo "---------------------------------------------------------------------------------------------------------------------------------"
 echo ""
-echo "For more details, please refer to the README: https://github.com/rtasalem/dffc-mac-scripts."
-echo "If experiecing any bugs or have a feature request, please raise an issue: https://github.com/rtasalem/dffc-mac-scripts/issues."
+echo "For more details, please refer to the README: https://github.com/rtasalem/dfcp-mac-scripts."
+echo "If you experience any bugs or have a feature request, please raise an issue: https://github.com/rtasalem/dfcp-mac-scripts/issues."

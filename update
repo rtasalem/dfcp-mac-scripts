@@ -1,7 +1,8 @@
 #!/bin/bash
+
 set -e
 
-echo "BEGIN CHECK FOR UPDATES"
+echo "CHECKING FOR UPDATES"
 
 echo "Updating Homebrew: brew update"
 brew update
@@ -11,5 +12,4 @@ brew outdated
 
 echo "Upgrading outdated packages: brew upgrade"
 brew upgrade
-
-echo "END"
+echo "Check complete. All packages are up to date."

@@ -1,21 +1,19 @@
 #!/bin/bash
+
 set -e
 
-echo "BEGIN INSTALL OF OPTIONAL PACKAGES"
-echo "---------------------------------"
+install_optional_formula() {
+  local formula=$1
 
-install_optional_package() {
-  local package=$1
+  echo "Checking if $formula is installed..."
 
-  echo "Checking if $package is installed..."
-
-  if ! brew list --formula | grep -q "^$package$"; then
-      echo "$package is not installed. Installing..."
-      brew install "$package"
-      echo "$package installation complete."
+  if ! brew list --formula | grep -q "^$formula$"; then
+      echo "$formula is not installed. Installing..."
+      brew install "$formula"
+      echo "$formula installation complete."
   else
-      echo "$package is already installed. Upgrading..."
-      brew upgrade "$package"
+      echo "$formula is already installed. Upgrading..."
+      brew upgrade "$formula"
   fi
 
   echo "---------------------------------"
@@ -38,37 +36,36 @@ install_optional_cask() {
   echo "---------------------------------"
 }
 
-OPTIONAL_PACKAGES=(
-  "awscli"
+OPTIONAL_FORMULAE=(
+  "k9s"
   "mongosh"
   "postgresql@14"
-  "k9s"
   "yq"
 )
 
 OPTIONAL_CASKS=(
-  "slack"
-  "microsoft-teams"
-  "microsoft-outlook"
-  "google-chrome"
-  "obsidian"
-  "drawio"
-  "pgadmin4"
-  "mongodb-compass"
-  "postman"
-  "lens"
   "azure-data-studio"
-  "microsoft-azure-storage-explorer"
-  "warp"
+  "drawio"
   "ghostty"
+  "google-chrome"
+  "lens"
+  "microsoft-azure-storage-explorer"
+  "microsoft-outlook"
+  "microsoft-teams"
+  "mongodb-compass"
+  "obsidian"
+  "pgadmin4"
+  "postman"
+  "slack"
+  "warp"
 )
 
-for package in "${OPTIONAL_PACKAGES[@]}"; do
+for formula in "${OPTIONAL_FORMULAE[@]}"; do
 
-  read -p "Do you want to install $package? [y/n]: " response
+  read -p "Do you want to install $formula? [y/n]: " response
 
   if [[ $response == "y" ]]; then
-    install_optional_package "$package"
+    install_optional_formula "$formula"
   fi
 
 done
@@ -82,5 +79,3 @@ for cask in "${OPTIONAL_CASKS[@]}"; do
   fi
 
 done
-
-echo "END"
