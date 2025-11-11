@@ -20,14 +20,9 @@ install_optional_cask() {
 }
 
 OPTIONAL_CASKS=(
-  "drawio"
-  "ghostty"
-  "google-chrome"
   "microsoft-outlook"
   "microsoft-teams"
   "mongodb-compass"
-  "obsidian"
-  "postman"
   "slack"
 )
 
