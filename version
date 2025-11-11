@@ -7,11 +7,7 @@ check_package_version() {
 
   echo "Checking version of $package..."
   if command -v "$package" &> /dev/null; then
-    case "$package" in
-      kubectl) kubectl version --client ;;
-      helm) helm version ;;
-      *) "$package" --version ;;
-    esac
+    "$package" --version
     echo "---------------------------------"
   else
     echo "$package is not installed."
@@ -20,14 +16,11 @@ check_package_version() {
 
 PACKAGES=(
   "aws"
-  "az"
   "brew"
   "detect-secrets"
-  "dotnet"
   "gh"
-  "helm"
-  "kubectl"
-  "kubelogin"
+  "java"
+  "mongosh"
   "pip3"
   "pre-commit"
   "python3"
