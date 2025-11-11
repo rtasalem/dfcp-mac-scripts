@@ -59,12 +59,9 @@ install_cask() {
 
 formulae=(
   "awscli"
-  "azure-cli"
-  "Azure/kubelogin/kubelogin"
   "detect-secrets"
   "gh"
-  "helm"
-  "kubectl"
+  "mongosh"
   "openjdk"
   "pre-commit"
   "python"
@@ -73,7 +70,6 @@ formulae=(
 
 casks=(
   "docker-desktop"
-  "dotnet-sdk"
   "visual-studio-code"
 )
 
@@ -105,4 +101,4 @@ echo "All packages installed via Homebrew are up to date."
 
 echo "Required packages for FCP development have now been installed."
 echo "DISCLAIMER: Packages not covered in this scripts includes NVM (Node Version Manager) and neostandard,"
-echo "            please refer to the FFC Development Guide for instructions: https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md"
+echo "            please refer to the FCP Development Guide for instructions: https://github.com/DEFRA/ffc-development-guide/blob/main/docs/local-development-setup/index.md"
